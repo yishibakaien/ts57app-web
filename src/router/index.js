@@ -1,15 +1,24 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Vue from 'vue';
+import Router from 'vue-router';
+import allPatterns from '@/components/all_patterns/all_patterns';
+import supply from '@/components/supply/supply';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
+  linkActiveClass: 'active',
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      redirect: '/allPatterns'
+    },
+    {
+      path: '/allPatterns',
+      component: allPatterns
+    },
+    {
+      path: '/supply',
+      component: supply
     }
   ]
-})
+});
