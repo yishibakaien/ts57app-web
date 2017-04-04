@@ -1,17 +1,17 @@
 <template>
   <div class="header">
     <div class="avatar-wrapper">
-        <img class="avatar" src="" alt="">
+      <img class="avatar" src="" alt="">
     </div>
     <div class="content-wrapper">
-        <div class="content">
-            <div class="title">
-                <span class="tag factory"></span><span class="name">福建坐视布管网络科技有限公司福建坐视布管网络科技有限公司</span>
-            </div>
-            <div class="desc">
-              主营：面料、大边、小边、睫毛
-            </div>
+      <div class="content">
+        <div class="title">
+          <span class="tag factory"></span><span class="name">福建坐视布管网络科技有限公司福建坐视布管网络科技有限公司</span>
         </div>
+        <div class="desc">
+          主营：面料、大边、小边、睫毛
+        </div>
+      </div>
     </div>
     <div class="star-wrapper">
       <div class="pageview">
