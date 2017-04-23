@@ -1,22 +1,18 @@
 <template>
-  <div class="all-patterns">
-    我是 all patterns.
-    <router-link to="/allPatterns/login">登录</router-link>
-    <button @click="loginToggle">showLogin</button>
-    <div>这里等待子组件的数据：{{msg}}</div>
-    <router-view></router-view>
-    <transition name="fade">
-        <div class="mask" @click.prevent.stop="loginToggle" v-if="isShowLogin">
-        </div>
-    </transition>
-    <transition name="slide">
-        <div v-if="isShowLogin" class="login-wrapper">
-            <login @child-msg="get">
-                <a slot="slot2">呵呵</a>
-            </login>
-        </div>
-    </transition>
-  </div>
+    <div class="login-mask">
+        <transition name="fade">
+            <div v-if="showMask" class="mask" @click="isShow">
+                <slot>我是mask:{{msg}}</slot>
+            </div>
+        </transition>
+        <transition name="slide">
+            <div v-if="showMask" class="login-wrapper">
+                <login @child-msg="get">
+                    <a slot="slot2">呵呵</a>
+                </login>
+            </div>
+        </transition>
+    </div>
 </template>
 
 <script>
@@ -24,26 +20,26 @@ import login from '../login/login';
 export default {
     data() {
         return {
-            msg: '',
-            isShowLogin: false
+            showMask: true,
+            msg: ''
         };
-    },
-    components: {
-        login
     },
     methods: {
         get(msg) {
             this.msg = msg;
         },
-        loginToggle() {
-            this.isShowLogin = !this.isShowLogin;
+        isShow() {
+            this.showMask = !this.showMask;
         }
+    },
+    components: {
+        login
     }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="stylus">
+<style lang="stylus" scoped>
     .mask 
         position fixed
         top 0
@@ -51,7 +47,7 @@ export default {
         right 0
         bottom 0
         z-index 100
-        background rgba(7,17,27, 0.6)
+        background rgba(7,17,27, 0.3)
         &.fade-enter-active,&.fade-leave-active
             transition 0.5s
         &.fade-enter,&.fade-leave-active
@@ -71,5 +67,4 @@ export default {
         &.slide-enter,&.slide-leave-active
             transform translate3d(-50%, 0, 0)
             opacity 0
-            
 </style>

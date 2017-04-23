@@ -10,14 +10,18 @@
       </div>
     </div>
     <router-view></router-view>
+    <v-mask></v-mask>
   </div>
 </template>
 
 <script>
 import header from './components/header/header';
+import mask from './components/mask/mask';
+
 export default {
   components: {
-    vHeader: header
+    vHeader: header,
+    vMask: mask
   }
 };
 </script>
