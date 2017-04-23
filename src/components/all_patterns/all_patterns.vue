@@ -1,7 +1,7 @@
 <template>
   <div class="all-patterns">
     我是 all patterns.
-    <router-link to="/allPatterns/login">登录</router-link>
+    <!-- <router-link to="/allPatterns/login">登录</router-link>
     <button @click="loginToggle">showLogin</button>
     <div>这里等待子组件的数据：{{msg}}</div>
     <router-view></router-view>
@@ -15,7 +15,7 @@
                 <a slot="slot2">呵呵</a>
             </login>
         </div>
-    </transition>
+    </transition> -->
   </div>
 </template>
 
